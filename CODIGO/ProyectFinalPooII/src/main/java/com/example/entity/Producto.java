@@ -2,25 +2,24 @@ package com.example.entity;
 
 public class Producto {
 
-	private int id;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "idproducto")
+	private int idproducto;
+	@Column(name = "nombre")
 	private String nombre;
+	@Column(name = "descripcion")
 	private String descripcion;
+	@Column(name = "precio")
 	private double precio;
+	@Column(name = "stock")
 	private int stock;
+	@Column(name = "estado")
 	private boolean estado;
 	
 	public Producto() {
 		super();
-	}
-
-	public Producto(int id, String nombre, String descripcion, double precio, int stock, boolean estado) {
-		super();
-		this.id = id;
-		this.nombre = nombre;
-		this.descripcion = descripcion;
-		this.precio = precio;
-		this.stock = stock;
-		this.estado = estado;
 	}
 
 	public int getId() {

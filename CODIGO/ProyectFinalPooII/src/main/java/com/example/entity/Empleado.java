@@ -1,30 +1,35 @@
 package com.example.entity;
 
 public class Empleado {
-	private int idEmpleado;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "idempleado")
+	private int idempleado;
+	@Column(name = "nombre")
 	private String nombre;
+	@Column(name = "apellido")
 	private String apellido;
+	@Column(name = "dni")
 	private String dni;
+	@Column(name = "telefono")
 	private String telefono;
+	@Column(name = "correo")
 	private String correo;
+	@Column(name = "tipo")
 	private int tipo;
+	@Column(name = "estado")
 	private boolean estado;
+	
+	@OneToOne
+	@JoinColumn(name = "idusuario", unique = true)
+	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+	private Usuario usuario;
     
 	public Empleado() {
 		super();
 	}
-	public Empleado(int idEmpleado, String nombre, String apellido, String dni, String telefono, String correo,
-			int tipo, boolean estado) {
-		super();
-		this.idEmpleado = idEmpleado;
-		this.nombre = nombre;
-		this.apellido = apellido;
-		this.dni = dni;
-		this.telefono = telefono;
-		this.correo = correo;
-		this.tipo = tipo;
-		this.estado = estado;
-	}
+
 	public int getIdEmpleado() {
 		return idEmpleado;
 	}

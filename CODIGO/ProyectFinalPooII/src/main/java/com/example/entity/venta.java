@@ -31,7 +31,7 @@ public class venta {
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "idcliente")
 	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-	private Cliente cliente;
+	private Cliente idcliente;
 	
 	public int getIdventa() {
 		return idventa;

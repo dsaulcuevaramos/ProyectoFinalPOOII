@@ -2,19 +2,24 @@ package com.example.entity;
 
 public class Usuario {
 
-	private int id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "idusuario")
+	private int idusuario;
+	@Column(name = "username")
 	private String username;
+	@Column(name = "password")
 	private String password;
+	
+	@Column(name="idempleado")
+	private int idempleado;
+    @ManyToMan(fetch = FetchType.LAZY, optional = false)
+	@JoinColumn(name = "idempleado")
+	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
 	private Empleado empleado;
+	
 	public Usuario() {
 		super();
-	}
-	public Usuario(int id, String username, String password, Empleado empleado) {
-		super();
-		this.id = id;
-		this.username = username;
-		this.password = password;
-		this.empleado = empleado;
 	}
 	public int getId() {
 		return id;

@@ -2,18 +2,17 @@ package com.example.entity;
 
 public class Rol {
 
-	private int id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "idrol")
+	private int idrol;
+	@Column(name = "nombre")
 	private String nombre;
+	@Column(name = "descripcion")
 	private String descipcion;
+	@Column(name = "sueldo")
 	private double sueldo;
 	
-	public Rol(int id, String nombre, String descipcion, double sueldo) {
-		super();
-		this.id = id;
-		this.nombre = nombre;
-		this.descipcion = descipcion;
-		this.sueldo = sueldo;
-	}
 
 	public Rol() {
 		super();

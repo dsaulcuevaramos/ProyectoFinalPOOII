@@ -1,23 +1,27 @@
 package com.example.entity;
 
 public class Servicio {
-
-	private int id;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "idservicio")
+	private int idservicio;
+	@Column(name = "descripcion")
 	private String descipcion;
+	@Column(name = "costo")
 	private double costo;
-	private int idEmpleado;
-	private Vehiculo vehiculo;
+	
+	@Column(name="idusuario")
+	private int idusuario;
+    @ManyToMan(fetch = FetchType.LAZY, optional = false)
+	@JoinColumn(name = "idusuario")
+	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+	private Usuario usuario;
+    
 	public Servicio() {
 		super();
 	}
-	public Servicio(int id, String descipcion, double costo, int idEmpleado, Vehiculo vehiculo) {
-		super();
-		this.id = id;
-		this.descipcion = descipcion;
-		this.costo = costo;
-		this.idEmpleado = idEmpleado;
-		this.vehiculo = vehiculo;
-	}
+	
 	public int getId() {
 		return id;
 	}

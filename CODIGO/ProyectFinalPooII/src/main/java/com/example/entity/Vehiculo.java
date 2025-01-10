@@ -2,20 +2,31 @@ package com.example.entity;
 
 public class Vehiculo {
 
-	private int id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "idvehiculo")
+	private int idvehiculo;
+	@Column(name ="placa")
 	private String placa;
+	@Column(name = "marca")
 	private String marca;
+	@Column(name = "modelo")
 	private String modelo;
+	@Column(name = "estado")
+	private boolean estado;
+	
+	@Column(name="idcliente")
+	private int idcliente;
+    @ManyToMan(fetch = FetchType.LAZY, optional = false)
+	@JoinColumn(name = "idcliente")
+	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+	private Cliente cliente;
+	
+	
 	public Vehiculo() {
 		super();
 	}
-	public Vehiculo(int id, String placa, String marca, String modelo) {
-		super();
-		this.id = id;
-		this.placa = placa;
-		this.marca = marca;
-		this.modelo = modelo;
-	}
+
 	public int getId() {
 		return id;
 	}

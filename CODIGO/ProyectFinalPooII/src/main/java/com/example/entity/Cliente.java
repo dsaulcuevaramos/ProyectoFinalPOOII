@@ -1,23 +1,26 @@
 package com.example.entity;
 
-public class Cliente{
+import jakarta.persistence.Column;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
+public class Cliente{
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "idcliente")
     private int id;
+	@Column(name = "nombre")
     private String nombre;
+	@Column(name = "apellidos")
     private String apellido;
+	@Column(name = "dni")
     private String dni;
     
 
     public Cliente(){
         super();   
-    }
-
-    public Cliente(int id, String nombre, String apellido, String dni) {
-        super();
-        this.id = id;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.dni = dni;
     }
 
     public int getId() {

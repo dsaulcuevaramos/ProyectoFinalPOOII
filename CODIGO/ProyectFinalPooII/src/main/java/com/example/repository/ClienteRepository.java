@@ -14,7 +14,7 @@ import com.example.entity.Cliente;
 import com.example.entity.Usuario;
 
 @Repository("clienterepository")
-public interface ClienteRepository extends jpaRepository <Cliente, Serializable> {
+public interface ClienteRepository extends JpaRepository <Cliente, Serializable> {
 
 String tableName = "cliente";
 	

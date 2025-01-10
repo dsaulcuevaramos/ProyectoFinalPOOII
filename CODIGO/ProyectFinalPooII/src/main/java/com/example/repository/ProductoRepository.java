@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
 import com.example.entity.Producto;
 
 @Repository("productorepository")
-public interface ProductoRepository extends JpaRepository<, Serializable>{
+public interface ProductoRepository extends JpaRepository<Producto , Serializable>{
 
 	String tableName = "usuario";
 	

@@ -1,6 +1,6 @@
-package com.example.demo.entity;
+package com.example.entity;
 
-public class empleado {
+public class Empleado {
 	private int idEmpleado;
 	private String nombre;
 	private String apellido;
@@ -9,11 +9,11 @@ public class empleado {
 	private String correo;
 	private int tipo;
 	private boolean estado;
-	public empleado() {
+    
+	public Empleado() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
-	public empleado(int idEmpleado, String nombre, String apellido, String dni, String telefono, String correo,
+	public Empleado(int idEmpleado, String nombre, String apellido, String dni, String telefono, String correo,
 			int tipo, boolean estado) {
 		super();
 		this.idEmpleado = idEmpleado;

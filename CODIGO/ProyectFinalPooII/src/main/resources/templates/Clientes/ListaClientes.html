@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<div th:replace="Principal/Template.html::header"></div>
+
+	<h1>Clientes</h1>
+	<hr>
+	<a th:href="@{clientecontroller/create}">NUEVO</a>
+	<hr>
+	<table border=1>
+		<thead>
+			<tr>
+				<th>nombres</th>
+				<th>apellidos</th>
+				<th>dni</th>
+				<th>Editar</th>
+				<th>Eliminar</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="temp:${clientes}">
+				<td th:text="${temp.nombre}"></td>
+				<td th:text="${temp.apellido}"></td>
+				<td th:text="${temp.dni}"></td>
+				<td><a class="btn" th:href="@{clientecontroller/edit/{id} (id=${temp.id}) }">Editar</a></td>
+				<td><a class="btn" th:href="@{clientecontroller/delete/{id} (id=${temp.id}) }">Eliminar</a></td>
+			</tr>		
+		</tbody>
+	</table>
+
+</body>
+</html>

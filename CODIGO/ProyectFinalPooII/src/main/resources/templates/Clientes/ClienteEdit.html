@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<body>
+	    <h1>Editar de Cliente</h1>
+	    <form th:action="@{/productocontroller/update}" method="POST">
+	        <label for="nombre">Nombres:</label><br>
+	        <input type="text" id="nombres" name="nombres" required th:value="S{cliente.nombre}"><br><br>
+	        
+	        <label for="descripcion">Apellidos:</label><br>
+	        <input type="text" id="apellidos" name="apellidos" required th:value="S{cliente.apellido}"><br><br>
+	        
+	        <label for="precio">Dni:</label><br>
+	        <input type="text" id="dni" name="dni" step="0.01" required th:value="S{cliente.dni}"><br><br>
+	        
+	        <input type="submit" value="Enviar"> 
+	    </form>
+	</body>
+
+</body>
+</html>

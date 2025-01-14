@@ -12,7 +12,7 @@ public interface ServicioService{
 	public Servicio save (Servicio servicio);
 	public Optional<Servicio> get(int id);
 	public void update(Servicio servicio);
-	public void delte(int id);
+	public void delete(int id);
 	
 
 }

@@ -44,7 +44,7 @@ public class ServicioImplement implements ServicioService{
 	}
 
 	@Override
-	public void delte(int id) {
+	public void delete(int id) {
 		// TODO Auto-generated method stub
 		
 	}

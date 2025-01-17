@@ -38,8 +38,8 @@ public class Empleado {
 	private Rol rol;
 	
 	//referenciado
-	@OneToOne(mappedBy = "empleado")
-	private Usuario usuario;
+	@OneToOne()//mappedBy = "empleado")
+	//private Usuario usuario;
 
 	public int getId() {
 		return id;
@@ -105,6 +105,7 @@ public class Empleado {
 		this.rol = rol;
 	}
 
+	/*
 	public Usuario getUsuario() {
 		return usuario;
 	}
@@ -112,7 +113,7 @@ public class Empleado {
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
-    
+    */
 	
 }
 

@@ -29,7 +29,7 @@ public class ProductoController {
 	
 	@GetMapping("")
 	public ModelAndView show() {
-		ModelAndView mav = new ModelAndView("Productos/ListaProductos");
+		ModelAndView mav = new ModelAndView("Productos/ProductoList");
 		mav.addObject("productos", productoService.findAll());
 		return mav;
 	}

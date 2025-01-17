@@ -31,6 +31,8 @@ public class VentaDetalle {
 	private Venta venta;
 	
 	@OneToOne
+	@JoinColumn(name = "idproducto")
+	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
 	private Producto producto;
 
 	public int getId() {

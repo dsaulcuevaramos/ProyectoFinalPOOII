@@ -27,7 +27,7 @@ private final Logger LOGGER = LoggerFactory.getLogger(ProductoController.class);
 	
 	@GetMapping("")
 	public ModelAndView show() {
-		ModelAndView mav = new ModelAndView("Clientes/ListaClientes");
+		ModelAndView mav = new ModelAndView("Clientes/ClienteList");
 		mav.addObject("clientes", clienteService.findAll());
 		return mav;
 	}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+<body>
+<div th:fragment="header">
+	<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #273746;">
+	  <div>
+	    <div>
+	      <a class="navbar-brand text-warning" th:href="@{/usuariocontroller/home}">
+	        CARDENAS B&M
+	      </a>
+	    </div>
+	    <div>
+	      <button (click)="#">Cerrar Sesion</button>
+	    </div>
+	  </div>
+	
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="navbar-toggler-icon"></span>
+	  </button>
+	
+	  <div class="collapse navbar-collapse" id="navbarNav">
+	    <ul class="navbar-nav ms-auto">
+	      <!-- Productos solo visible para el Admin -->
+	      <li class="nav-item" >
+	        <a class="nav-link text-light" th:href="@{/productocontroller}">Productos</a>
+	      </li>
+	      <!-- Cliente solo visible para el Admin -->
+	      <li class="nav-item" >
+	        <a class="nav-link text-light" th:href="@{/clientecontroller}">Cliente</a>
+	      </li>
+	      <!-- Vehículo solo visible para el Admin -->
+	      <li class="nav-item" >
+	        <a class="nav-link text-light" th:href="@{/clientecontroller}">Vehículos</a>
+	      </li>
+	      <!-- Empleado solo visible para el Admin -->
+	      <li class="nav-item" >
+	        <a class="nav-link text-light" th:href="@{/clientecontroller}">Empleado</a>
+	      </li>
+	      <!-- Usuario solo visible para el Admin -->
+	      <li class="nav-item" >
+	        <a class="nav-link text-light" th:href="@{/clientecontroller}">Usuario</a>
+	      </li>
+	      <!-- Home visible para todos los usuarios -->
+	      <li class="nav-item">
+	        <a class="nav-link text-light" routerLink="@{/usuariorepository/home}" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+	      </li>
+	    </ul>
+	  </div>
+	
+	  <div class="text-light ms-3">
+	    <h5>Bienvenido</h5>
+	  </div>
+	</nav>
+</div>
+</body>
+</html>

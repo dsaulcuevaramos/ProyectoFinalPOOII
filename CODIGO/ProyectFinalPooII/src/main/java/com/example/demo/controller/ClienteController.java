@@ -16,10 +16,10 @@ import com.example.demo.entity.Cliente;
 import com.example.demo.service.ClienteService;
 
 @Controller
-@RequestMapping("clientecontroller")
+@RequestMapping("/clientecontroller")
 public class ClienteController {
 
-private final Logger LOGGER = LoggerFactory.getLogger(ProductoController.class);
+private final Logger LOGGER = LoggerFactory.getLogger(ClienteController.class);
 	
 	@Autowired
 	private ClienteService clienteService;

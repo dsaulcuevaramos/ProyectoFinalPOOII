@@ -57,6 +57,7 @@ public class ProductoController {
 		return mav;
 	}
 	
+	
 	@PostMapping("/update")
 	public String update(Producto producto) {
 		productoService.update(producto);

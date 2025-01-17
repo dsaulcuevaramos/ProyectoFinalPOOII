@@ -28,7 +28,6 @@ public class Empleado {
 	private String apellidos;	
 	private String dni;
 	private String telefono;	
-	private String correo;
 	private boolean estado;
 	
 	//foraneos
@@ -38,8 +37,8 @@ public class Empleado {
 	private Rol rol;
 	
 	//referenciado
-	@OneToOne()//mappedBy = "empleado")
-	//private Usuario usuario;
+	@OneToOne(mappedBy = "empleado")
+	private Usuario usuario;
 
 	public int getId() {
 		return id;
@@ -81,14 +80,6 @@ public class Empleado {
 		this.telefono = telefono;
 	}
 
-	public String getCorreo() {
-		return correo;
-	}
-
-	public void setCorreo(String correo) {
-		this.correo = correo;
-	}
-
 	public boolean isEstado() {
 		return estado;
 	}
@@ -105,7 +96,6 @@ public class Empleado {
 		this.rol = rol;
 	}
 
-	/*
 	public Usuario getUsuario() {
 		return usuario;
 	}
@@ -113,7 +103,6 @@ public class Empleado {
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
-    */
 	
 }
 

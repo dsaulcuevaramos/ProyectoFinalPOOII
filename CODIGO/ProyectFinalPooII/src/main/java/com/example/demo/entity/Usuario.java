@@ -29,6 +29,7 @@ public class Usuario {
 	private int id;
 	private String username;
 	private String password;
+	private String correo;
 	
 	//foraneos
     @OneToOne
@@ -80,6 +81,15 @@ public class Usuario {
 	public void setServicio(List<Servicio> servicio) {
 		this.servicio = servicio;
 	}
+
+	public String getCorreo() {
+		return correo;
+	}
+
+	public void setCorreo(String correo) {
+		this.correo = correo;
+	}
+	
 	
 	
 }

@@ -5,6 +5,22 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-</body>
+	    <h1>Editar de Vehiculo</h1>
+	    <form th:action="@{/vehiculocontroller/update}" method="POST">
+	        <label for="placa">placa:</label><br>
+	        <input type="text" id="placa" name="placa" required th:value="${vehiuclo.placa}"><br><br>
+	        
+	        <label for="marca">marca:</label><br>
+	        <textarea id="marca" name="marca"  required th:value="${vehiculo.marca}"></textarea><br><br>
+	        
+	        <label for="modelo">modelo:</label><br>
+	        <textarea id="modelo" name="modelo"  required th:value="${vehiculo.modelo}"></textarea><br><br>
+	        
+	        <label for="estado">estado:</label><br>
+	        <textarea id="estado" name="estado" required th:value="${vehiculo.estado}"></textarea><br><br>
+	        
+	        <input type="hidden" id="estado" name="estado" value="1" contenteditable="false" disabled="disabled" required><br><br>
+	        
+	    </form>
+	</body>
 </html>

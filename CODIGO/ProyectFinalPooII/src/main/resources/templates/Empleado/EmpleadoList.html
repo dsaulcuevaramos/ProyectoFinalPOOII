@@ -14,7 +14,7 @@
 	  
 	    <div class="text-center">
 	        <h3 class=" text-dark mb-4">Agregar un nuevo Empleado</h3>
-	        <button class="text-center btn btn-warning mb-3" (click)="@{clientecontroller/create}">Añadir Nuevo Empleado</button>
+	        <button class="text-center btn btn-warning mb-3" (click)="@{empleadocontroller/create}">Añadir Nuevo Empleado</button>
 	    </div>
 	    
 	    <h4 class="text-center text-dark mb-4">Listado de Empleados</h4>
@@ -40,20 +40,24 @@
 	                    <button class="btn btn-danger" (click)="@{clientecontroller/delete/{id} (id=${temp.id}) }">Eliminar </button>
 	                </td>
 	            </tr>
-	            <tr th:each="temp:${clientes}">
-				<td th:text="${temp.nombre}"></td>
-				<td th:text="${temp.apellido}"></td>
-				<td th:text="${temp.dni}"></td>
-				<td><button class="btn" data-bs-toggle="modal" data-bs-target="#clienteModal" 
+	           <tr th:each="temp:${empleados}">
+	                <td th:text="${temp.nombre}"></td>
+	                <td th:text="${temp.apellidos}">{{empleado.apellidos}}</td>
+	                <td th:text="${temp.dni}">{{empleado.dni}}</td>
+	                <td th:text="${temp.telefono}">{{empleado.telefono}}</td>
+	                <td th:text="${temp.rol}">{{empleado.rol}}</td>
+				<td><button class="btn" data-bs-toggle="modal" data-bs-target="#empleadoModal" 
 				    th:data-id="${temp.id}" 
 				    th:data-nombre="${temp.nombre}" 
 				    th:data-apellido="${temp.apellido}" 
 				    th:data-dni="${temp.dni}"
-				    (click)="@{clientecontroller/edit/{id} (id=${temp.id}) }">
+				    th:data-telefono="${temp.telefono}"
+				    th:data-rol="${temp.rol}"
+				    (click)="@{empleadocontroller/edit/{id} (id=${temp.id}) }">
 				    Editar
 					</button>
 				</td>
-				<td><a class="btn" th:href="@{clientecontroller/delete/{id} (id=${temp.id}) }">Eliminar</a></td>
+				<td><a class="btn" th:href="@{empleadocontroller/delete/{id} (id=${temp.id}) }">Eliminar</a></td>
 			</tr>	
 	        </tbody>
 	    </table>

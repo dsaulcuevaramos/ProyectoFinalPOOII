@@ -1,10 +1,26 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-
-</body>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">  
+	<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	</head>
+	<body>
+	    <h1>Formulario de vehiculo</h1>
+	    <form th:action="@{/vehiculocontroller/save}" method="POST">
+	         <label for="placa">placa:</label><br>
+	        <input type="text" id="placa" name="placa" required th:value="${vehiuclo.placa}"><br><br>
+	        
+	        <label for="marca">marca:</label><br>
+	        <textarea id="marca" name="marca"  required th:value="${vehiculo.marca}"></textarea><br><br>
+	        
+	        <label for="modelo">modelo:</label><br>
+	        <textarea id="modelo" name="modelo"  required th:value="${vehiculo.modelo}"></textarea><br><br>
+	        
+	        <label for="estado">estado:</label><br>
+	        <textarea id="estado" name="estado" required th:value="${vehiculo.estado}"></textarea><br><br>
+	        <input type="hidden" id="estado" name="estado" value="1" contenteditable="false" disabled="disabled" required><br><br>
+	        
+	        <input type="submit" value="Enviar">
+	    </form>
+	</body>
 </html>

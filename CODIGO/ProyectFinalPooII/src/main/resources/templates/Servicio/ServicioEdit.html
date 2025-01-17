@@ -5,6 +5,28 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-</body>
+	    <h1>Editar de Servicio</h1>
+	    <form th:action="@{/serviciocontroller/update}" method="POST">
+	        <label for="descripcion">descripcion:</label><br>
+	        <input type="text" id="descripcion" name="descripcion" required th:value="${servicio.descripcion}"><br><br>
+	        
+	        <label for="costo">costo:</label><br>
+	        <input type="number" id="costo" name="costo" step="0.01" required th:value="${servicio.costo}"><br><br>
+	     
+	        <div class="mb-3">
+				<label for="usuario" class="form-label">usuario</label>
+				<div>
+					<select id="usuario"
+						[ngClass]="{'is-invalid': submitted && f['usuario'].errors}"
+						formControlName="usuario">
+						<option *ngFor="let temp of usuario" [ngValue]="temp.id">{{temp.username}}</option>
+					</select>
+				</div>
+				<div *ngIf="submitted && f['usuario'].errors"
+					class="invalid-feedback">el usuario es requerido.</div>
+			</div>
+	        
+	        <input type="submit" value="Enviar"> 
+	    </form>
+	</body>
 </html>

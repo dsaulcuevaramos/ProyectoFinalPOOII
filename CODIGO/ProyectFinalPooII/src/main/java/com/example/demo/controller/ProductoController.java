@@ -19,7 +19,7 @@ import ch.qos.logback.core.model.Model;
 import jakarta.websocket.server.PathParam;
 
 @Controller()
-@RequestMapping("/productocontroller")
+@RequestMapping("productocontroller")
 public class ProductoController {
 
 	private final Logger LOGGER = LoggerFactory.getLogger(ProductoController.class);
@@ -48,12 +48,12 @@ public class ProductoController {
 	
 	@GetMapping("/edit/{id}")
 	public ModelAndView edit(@PathVariable int id){
-		Producto prod = new Producto();
+		Producto producto = new Producto();
 		Optional<Producto> optional = productoService.get(id);
-		prod = optional.get();
-		LOGGER.info("Producto buscado: {}",prod);
+		producto = optional.get();
+		LOGGER.info("Producto buscado: {}",producto);
 		ModelAndView mav = new ModelAndView("Productos/ProductoEdit");
-		mav.addObject("producto",prod);
+		mav.addObject("producto",producto);
 		return mav;
 	}
 	

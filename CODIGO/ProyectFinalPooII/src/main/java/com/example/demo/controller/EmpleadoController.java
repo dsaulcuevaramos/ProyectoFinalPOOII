@@ -29,7 +29,7 @@ private final Logger LOGGER = LoggerFactory.getLogger(EmpleadoController.class);
 	
 	@GetMapping("")
 	public ModelAndView show() {
-		ModelAndView mav = new ModelAndView("Empleado/ListaEmpleado");
+		ModelAndView mav = new ModelAndView("Empleado/EmpleadoList");
 		mav.addObject("empleado", empleadoservice.findAll());
 		return mav;
 	}

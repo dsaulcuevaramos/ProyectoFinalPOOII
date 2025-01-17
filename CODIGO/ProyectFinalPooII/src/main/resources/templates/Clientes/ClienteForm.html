@@ -1,22 +1,62 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Formulario de Cliente</title>
+<!-- Asegúrate de incluir Bootstrap o algún estilo para el modal -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
 </head>
 <body>
-	    <h1>Editar de Producto</h1>
-	    <form th:action="@{/productocontroller/update}" method="POST">
-	        <label for="nombre">Nombres:</label><br>
-	        <input type="text" id="nombres" name="nombres" required><br><br>
-	        
-	        <label for="descripcion">Apellidos:</label><br>
-	        <input type="text" id="apellidos" name="apellidos" required><br><br>
-	        
-	        <label for="precio">Dni:</label><br>
-	        <input type="text" id="dni" name="dni" step="0.01" required><br><br>
-	        
-	        <input type="submit" value="Enviar"> 
-	    </form>
-	</body>
-</html>
+    <!-- Modal -->
+    <div class="modal fade" id="clienteModal" tabindex="-1" aria-labelledby="clienteModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="clienteModalLabel" th:text="${cliente != null ? 'Editar Cliente' : 'Nuevo Cliente'}">Formulario de Cliente</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form th:action="@{${cliente != null ? '/clientecontroller/update' : '/clientecontroller/save'}}" method="POST">
+                        <!-- Si el cliente está presente, le asignamos el ID para la actualización -->
+                        <input type="hidden" name="id" th:value="${cliente != null ? cliente.id : ''}">
+
+                        <div class="mb-3">
+                            <label for="nombres" class="form-label">Nombres:</label>
+                            <input type="text" id="nombres" name="nombres" class="form-control" required th:value="${cliente != null ? cliente.nombre : ''}">
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="apellidos" class="form-label">Apellidos:</label>
+                            <input type="text" id="apellidos" name="apellidos" class="form-control" required th:value="${cliente != null ? cliente.apellido : ''}">
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="dni" class="form-label">DNI:</label>
+                            <input type="text" id="dni" name="dni" class="form-control" required th:value="${cliente != null ? cliente.dni : ''}">
+                        </div>
+                        
+                        <input type="submit" class="btn btn-primary" value="Guardar">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts de Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+    
+    <!-- Lógica para abrir el modal -->
+    <script>
+        // Mostrar el modal cuando el cliente se edite
+        var cliente = /*[[${cliente}]]*/ null; // Cargar el objeto cliente si está disponible
+        
+        if(cliente) {
+            var myModal = new bootstrap.Modal(document.getElementById('clienteModal'));
+            myModal.show();
+        }
+    </script>
+</body>
+</html>	
+

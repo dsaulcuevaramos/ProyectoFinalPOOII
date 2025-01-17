@@ -15,7 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.example.demo.entity.Cliente;
 import com.example.demo.service.ClienteService;
 
-@Controller
+@Controller()
 @RequestMapping("clientecontroller")
 public class ClienteController {
 
@@ -33,8 +33,8 @@ private final Logger LOGGER = LoggerFactory.getLogger(ProductoController.class);
 	}
 	
 	@GetMapping("/create")
-	public String create(){
-		return "Clientes/ClienteForm";
+	public String create() {
+	    return "Clientes/ClienteForm";  // El formulario estará vacío para la creación
 	}
 	
 	@PostMapping("/save")
@@ -45,14 +45,12 @@ private final Logger LOGGER = LoggerFactory.getLogger(ProductoController.class);
 	}
 	
 	@GetMapping("/edit/{id}")
-	public ModelAndView edit(@PathVariable int id){
-		Cliente client = new Cliente();
-		Optional<Cliente> optional = clienteService.get(id);
-		client = optional.get();
-		LOGGER.info("Cliente buscado: {}",client);
-		ModelAndView mav = new ModelAndView("Clientes/ClienteEdit");
-		mav.addObject("cliente",client);
-		return mav;
+	public ModelAndView edit(@PathVariable int id) {
+	    Cliente cliente = clienteService.get(id).orElse(null);
+	    LOGGER.info("Cliente encontrado: {}", cliente);
+	    ModelAndView mav = new ModelAndView("Clientes/ClienteForm");
+	    mav.addObject("cliente", cliente);  // Se pasa el cliente para editar
+	    return mav;
 	}
 	
 	@PostMapping("/update")

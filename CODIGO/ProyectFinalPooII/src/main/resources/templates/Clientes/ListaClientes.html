@@ -27,7 +27,15 @@
 				<td th:text="${temp.nombre}"></td>
 				<td th:text="${temp.apellido}"></td>
 				<td th:text="${temp.dni}"></td>
-				<td><a class="btn" th:href="@{clientecontroller/edit/{id} (id=${temp.id}) }">Editar</a></td>
+				<td><button class="btn" data-bs-toggle="modal" data-bs-target="#clienteModal" 
+				    th:data-id="${temp.id}" 
+				    th:data-nombre="${temp.nombre}" 
+				    th:data-apellido="${temp.apellido}" 
+				    th:data-dni="${temp.dni}"
+				    (click)="@{clientecontroller/edit/{id} (id=${temp.id}) }">
+				    Editar
+					</button>
+				</td>
 				<td><a class="btn" th:href="@{clientecontroller/delete/{id} (id=${temp.id}) }">Eliminar</a></td>
 			</tr>		
 		</tbody>

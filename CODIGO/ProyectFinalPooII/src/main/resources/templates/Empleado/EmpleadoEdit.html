@@ -5,6 +5,21 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-</body>
+	    <h1>Editar de Producto</h1>
+	    <form th:action="@{/productocontroller/update}" method="POST">
+	        <label for="nombre">Nombre del producto:</label><br>
+	        <input type="text" id="nombre" name="nombre" required th:value="${producto.nombre}"><br><br>
+	        
+	        <label for="descripcion">Descripción:</label><br>
+	        <textarea id="descripcion" name="descripcion" rows="4" cols="50"  disabled="disabled"  required th:value="${producto.descripcion}"></textarea><br><br>
+	        
+	        <label for="precio">Precio:</label><br>
+	        <input type="number" id="precio" name="precio" step="0.01" required th:value="${producto.precio}"><br><br>
+	        
+	        <label for="stock">Stock disponible:</label><br>
+	        <input type="number" id="stock" name="stock" required th:value="${producto.stock}"><br><br>
+	        
+	        <input type="submit" value="Enviar"> 
+	    </form>
+	</body>
 </html>

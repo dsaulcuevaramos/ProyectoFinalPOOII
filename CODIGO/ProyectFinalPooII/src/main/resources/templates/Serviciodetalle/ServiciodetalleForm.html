@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">  
+	<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	</head>
+	<body>
+	    <h1>Formulario de Servicio Detalle</h1>
+	   <form th:action="@{/serviciocontroller/update}" method="POST">
+	   
+	    <div class="mb-3">
+				<label for="servicio" class="form-label">servicio</label>
+				<div>
+					<select id="servicio"
+						[ngClass]="{'is-invalid': submitted && f['servicio'].errors}"
+						formControlName="servicio">
+						<option *ngFor="let temp of servicio" [ngValue]="temp.id">{{temp.idservicio}}</option>
+					</select>
+				</div>
+				<div *ngIf="submitted && f['servicio'].errors"
+					class="invalid-feedback">el servicio es requerido.</div>
+			</div>
+			
+			 <div class="mb-3">
+				<label for="vehiculo" class="form-label">vehiculo</label>
+				<div>
+					<select id="vehiculo"
+						[ngClass]="{'is-invalid': submitted && f['vehiculo'].errors}"
+						formControlName="vehiculo">
+						<option *ngFor="let temp of vehiculo" [ngValue]="temp.id">{{temp.idvehiculo}}</option>
+					</select>
+				</div>
+				<div *ngIf="submitted && f['vehiculo'].errors"
+					class="invalid-feedback">el vehiculo es requerido.</div>
+			</div>
+		
+	        <label for="fecha">fecha:</label><br>
+	        <input type="text" id="fecha" name="fecha" required th:value="${serviciodetalle.fecha}"><br><br>
+	        
+	        <label for="costototal">costo total:</label><br>
+	        <input type="number" id="costototal" name="costototal" step="0.01" required th:value="${serviciodetalle.costototal}"><br><br>
+	     
+	        <input type="submit" value="Enviar">
+	    </form>
+	</body>
+</html>
+

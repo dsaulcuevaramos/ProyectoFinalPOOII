@@ -39,7 +39,7 @@ public class ProductoImplement implements ProductoService{
 	}
 
 	@Override
-	public void delte(int id) {
+	public void delete(int id) {
 		productoRepository.deleteById(id);
 	}
 

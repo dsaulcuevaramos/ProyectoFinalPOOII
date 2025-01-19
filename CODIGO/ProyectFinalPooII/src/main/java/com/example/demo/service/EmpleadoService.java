@@ -3,10 +3,7 @@ package com.example.demo.service;
 import java.util.List;
 import java.util.Optional;
 
-
 import com.example.demo.entity.Empleado;
-
-
 
 public interface EmpleadoService{
 
@@ -14,7 +11,7 @@ public interface EmpleadoService{
 	public Empleado save (Empleado empleado);
 	public Optional<Empleado> get(int id);
 	public void update(Empleado empleado);
-	public void delte(int id);
+	public void delete(int id);
 
 
 }

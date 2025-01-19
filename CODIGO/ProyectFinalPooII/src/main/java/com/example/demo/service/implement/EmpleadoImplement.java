@@ -39,7 +39,7 @@ public class EmpleadoImplement implements EmpleadoService{
 	}
 
 	@Override
-	public void delte(int id) {
+	public void delete(int id) {
 		empleadoRepository.deleteById(id);
 	}
 	

@@ -17,10 +17,10 @@ public class Rol {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "idrol")
-	private int id;
+	private Integer id;
 	private String nombre;
 	private String descripcion;
-	private double sueldo;
+	private Double sueldo;
 	
 	//referenciados
 	@OneToMany(mappedBy = "rol")

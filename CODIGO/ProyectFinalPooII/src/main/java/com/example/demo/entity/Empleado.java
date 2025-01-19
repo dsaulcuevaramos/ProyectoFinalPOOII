@@ -23,12 +23,12 @@ public class Empleado {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "idempleado")
-	private int id;
+	private Integer id;
 	private String nombres;
 	private String apellidos;	
 	private String dni;
 	private String telefono;	
-	private boolean estado;
+	private Boolean estado = true;
 	
 	//foraneos
 	@ManyToOne(fetch = FetchType.LAZY)

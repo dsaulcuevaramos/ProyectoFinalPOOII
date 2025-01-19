@@ -39,7 +39,7 @@ public class UsuarioImplement implements UsuarioService{
 	}
 
 	@Override
-	public void delte(int id) {
+	public void delete(int id) {
 		usuarioRepository.deleteById(id);
 	}
 

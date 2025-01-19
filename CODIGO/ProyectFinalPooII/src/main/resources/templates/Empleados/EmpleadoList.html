@@ -11,43 +11,51 @@
 <body>
 
 	<div class="container mt-4">
-        <h1>Lista de Clientes</h1>
+        <h1>Lista de Empleados</h1>
 
-		<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#clienteModal">
+		<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#empleadoModal">
 			&#9757 Agregar
 		</button>
+
+		<a th:href="@{/empleadocontroller/create}" class="btn btn-danger btn-sm">nuevo</a>
 
 		<table class="table table-striped mt-4 ">
 			<thead class="thead-dark" style="background-color: #273746; color: #F1C40F;">
 				<tr>
 					<th>Nombre</th>
-					<th>Apellidos</th>
-					<th>Dni</th>
-					<th>Acciones</th>
+                    <th>Apellidos</th>
+                    <th>Dni</th>
+                    <th>Telefono</th>
+                    <th>Rol</th>
+                    <th>Acciones</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="temp : ${clientes}">
-					<td th:text="${temp.nombre}"></td>
-					<td th:text="${temp.apellido}"></td>
+				<tr th:each="temp : ${empleados}" th:if="${temp != null}" >
+					<td th:text="${temp.nombres}"></td>
+					<td th:text="${temp.apellidos}"></td>
 					<td th:text="${temp.dni}"></td>
+                    <td th:text="${temp.telefono}"></td>
+                    <td th:text="${temp.rol}"></td>
 					<td> 
-						<button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#clienteModalEdit"
+						<button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#empleadoModalEdit"
                             th:data-id="${temp.id}"
-                            th:data-1="${temp.nombre}"
-                            th:data-2="${temp.apellido}"
-                            th:data-3="${temp.dni}">
+                            th:data-1="${temp.nombres}"
+                            th:data-2="${temp.apellidos}"
+                            th:data-3="${temp.dni}"
+                            th:data-4="${temp.telefono}"
+                            th:data-5="${temp.rol}">
                             &#9999 
                         </button> &nbsp;
-						<a th:href="@{/clientecontroller/delete/{id}(id=${temp.id})}" class="btn btn-danger btn-sm">&#9851</a>
+						<a th:href="@{/empleadocontroller/delete/{id}(id=${temp.id})}" class="btn btn-danger btn-sm">&#9851</a>
 					</td>
 				</tr>
 			</tbody>
 		</table>
 	</div>
 	
-	<div th:replace="Clientes/ClienteEdit.html :: formularioedit"></div>
-    <div th:replace="Clientes/ClienteForm.html :: formulario"></div>
+	<div th:replace="Empleados/EmpleadoEdit.html :: formularioedit"></div>
+    <div th:replace="Empleados/EmpleadoForm.html :: formulario"></div>
 
 </body>
 </html>
@@ -55,15 +63,19 @@
 
 <script>
 	document.addEventListener('DOMContentLoaded', function() {
-		const modal = document.getElementById('clienteModalEdit');
+		const modal = document.getElementById('empleadoModalEdit');
 		modal.addEventListener('show.bs.modal', function(event) {
 			const button = event.relatedTarget; 
 			document.getElementById('id').value = button.getAttribute('data-id');
 			document.getElementById('nombre').value = button.getAttribute('data-1');   
 			document.getElementById('apellido').value = button.getAttribute('data-2');
 			document.getElementById('dni').value = button.getAttribute('data-3');
-            
+            document.getElementById('telefono').value = button.getAttribute('data-4');
+            document.getElementById('rol').value = button.getAttribute('data-5');
         });
 	});
-</script>
 
+
+	
+
+</script>

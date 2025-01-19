@@ -6,7 +6,6 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
 
 import com.example.demo.entity.Venta;
 import com.example.demo.repository.VentaRepository;
@@ -41,7 +40,7 @@ public class VentaImplement implements VentaService{
 	}
 
 	@Override
-	public void delte(int id) {
+	public void delete(int id) {
 		// TODO Auto-generated method stub
 		
 	}

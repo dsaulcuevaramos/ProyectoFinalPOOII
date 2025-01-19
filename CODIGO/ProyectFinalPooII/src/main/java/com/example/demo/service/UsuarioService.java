@@ -11,6 +11,6 @@ public interface UsuarioService {
 	public Usuario save (Usuario usuario);
 	public Optional<Usuario> get(int id);
 	public void update(Usuario usuario);
-	public void delte(int id);
+	public void delete(int id);
 	
 }

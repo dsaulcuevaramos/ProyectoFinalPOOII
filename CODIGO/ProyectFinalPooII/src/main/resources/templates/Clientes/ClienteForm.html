@@ -5,18 +5,46 @@
 <title>Insert title here</title>
 </head>
 <body>
-	    <h1>Editar de Producto</h1>
-	    <form th:action="@{/productocontroller/update}" method="POST">
-	        <label for="nombre">Nombres:</label><br>
-	        <input type="text" id="nombres" name="nombres" required><br><br>
-	        
-	        <label for="descripcion">Apellidos:</label><br>
-	        <input type="text" id="apellidos" name="apellidos" required><br><br>
-	        
-	        <label for="precio">Dni:</label><br>
-	        <input type="text" id="dni" name="dni" step="0.01" required><br><br>
-	        
-	        <input type="submit" value="Enviar"> 
-	    </form>
-	</body>
+	<div th:fragment="formulario">
+		<div class="modal fade" id="clienteModal" tabindex="-1" aria-labelledby="clienteModalLabel"
+			aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="clienteModalLabel">Formulario de Producto</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+					
+						<form th:action="@{/clientecontroller/save}" method="POST">
+
+							<div class="mb-3">
+								<label for="nombre" class="form-label">nombres:</label>
+								<input type="text" id="nombre" name="nombre" class="form-control" required>
+							</div>
+
+							<div class="mb-3">
+								<label for="apellido" class="form-label">apellidos:</label>
+								<input id="apellido" name="apellido" class="form-control" rows="4"
+									required>
+							</div>
+
+							<div class="mb-3">
+								<label for="dni" class="form-label">dni:</label>
+								<input type="number" id="dni" name="dni" step="0.01" class="form-control"
+									required>
+							</div>
+
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+								<input type="submit" value="Guardar" class="btn btn-primary">
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
 </html>

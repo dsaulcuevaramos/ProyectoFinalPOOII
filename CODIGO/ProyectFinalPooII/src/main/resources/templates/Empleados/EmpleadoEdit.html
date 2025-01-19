@@ -6,22 +6,18 @@
 </head>
 <body>
 	<div th:fragment="formularioedit">
-		<div class="modal fade" id="clienteModalEdit" tabindex="-1" aria-labelledby="clienteModalLabel"
+		<div class="modal fade" id="empleadoModalEdit" tabindex="-1" aria-labelledby="empleadoModalLabel"
 			aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h5 class="modal-title" id="clienteModalLabel">Formulario de Producto</h5>
+						<h5 class="modal-title" id="empleadoModalLabel">Formulario de Producto</h5>
 						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					</div>
 					<div class="modal-body">
 					
-						<form th:action="@{/clientecontroller/update}" method="POST">
+						<form th:action="@{/empleadocontroller/update}" method="POST">
 
-							<div class="mb-3">
-                            	<input type="hidden" id="id" name="id" class="form-control" required>
-							</div>
-							
 							<div class="mb-3">
 								<label for="nombre" class="form-label">nombres:</label>
 								<input type="text" id="nombre" name="nombre" class="form-control" required>
@@ -39,6 +35,22 @@
 									required>
 							</div>
 
+                            <div class="mb-3">
+								<label for="telefono" class="form-label">telefono:</label>
+								<input type="number" id="telefono" name="telefono" class="form-control"
+									required>
+							</div>
+                            
+                            <!--<div class="mb-3">
+                                <label for="apellido" class="form-label">correo</label>
+                                <input type="apellido" class="form-control" id="apellido" formControlName="apellido"
+                                    [ngClass]="{'is-invalid': submitted && f['apellido'].errors}">
+                                <div *ngIf="submitted && f['apellido'].errors" class="invalid-feedback">
+                                    <div *ngIf="f['apellido'].errors['required']">apellido is required</div>
+                                    <div *ngIf="f['apellido'].errors['apellido']">Invalid apellido format</div>
+                                </div>
+                            </div>-->
+                
 							<div class="modal-footer">
 								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
 								<input type="submit" value="Guardar" class="btn btn-primary">

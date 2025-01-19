@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-ProyectFinalPooIiApplication<ProyectFinalPooII>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.example.demo.ProyectFinalPooIiApplication",
+            "projectName": "ProyectFinalPooII",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

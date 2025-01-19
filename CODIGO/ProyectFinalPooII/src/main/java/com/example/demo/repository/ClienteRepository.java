@@ -9,5 +9,5 @@ import com.example.demo.entity.Cliente;
 
 @Repository("clienterepository")
 public interface ClienteRepository extends JpaRepository<Cliente, Serializable>{
-
+    
 }

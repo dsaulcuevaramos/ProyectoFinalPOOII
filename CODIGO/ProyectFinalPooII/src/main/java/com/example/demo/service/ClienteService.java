@@ -11,6 +11,6 @@ public interface ClienteService {
 	public Cliente save (Cliente cliente);
 	public Optional<Cliente> get(int id);
 	public void update(Cliente cliente);
-	public void delte(int id);
+	public void delete(int id);
 }
 

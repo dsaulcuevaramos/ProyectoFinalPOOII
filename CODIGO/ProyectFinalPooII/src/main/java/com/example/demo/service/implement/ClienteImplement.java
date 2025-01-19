@@ -40,7 +40,7 @@ public class ClienteImplement implements ClienteService{
 	}
 
 	@Override
-	public void delte(int id) {
+	public void delete(int id) {
 		clienteRepository.deleteById(id);
 	}
 

@@ -20,8 +20,7 @@ public class RolImplement implements RolService{
 	
 	@Override
 	public List<Rol> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return rolRepository.findAll();
 	}
 
 	@Override
@@ -43,7 +42,7 @@ public class RolImplement implements RolService{
 	}
 
 	@Override
-	public void delte(int id) {
+	public void delete(int id) {
 		// TODO Auto-generated method stub
 		
 	}

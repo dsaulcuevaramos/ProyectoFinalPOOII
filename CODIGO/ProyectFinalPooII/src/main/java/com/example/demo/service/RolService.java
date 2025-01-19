@@ -11,6 +11,6 @@ public interface RolService {
 	public Rol save (Rol rol);
 	public Optional<Rol> get(int id);
 	public void update(Rol rol);
-	public void delte(int id);
+	public void delete(int id);
 	
 }

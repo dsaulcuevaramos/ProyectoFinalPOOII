@@ -12,6 +12,6 @@ public interface ProductoService{
 	public Producto save (Producto producto);
 	public Optional<Producto> get(int id);
 	public void update(Producto producto);
-	public void delte(int id);
+	public void delete(int id);
 	
 }

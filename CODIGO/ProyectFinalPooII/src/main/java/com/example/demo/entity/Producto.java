@@ -24,11 +24,11 @@ public class Producto {
 	@Column(name = "descripcion")
 	private String descripcion;
 	@Column(name = "precio")
-	private double precio;
+	private Double precio;
 	@Column(name = "stock")
-	private int stock;
+	private Integer stock;
 	@Column(name = "estado")
-	private boolean estado = true;
+	private Integer estado;
 	
 	
 	public int getId() {
@@ -49,25 +49,24 @@ public class Producto {
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
-	public double getPrecio() {
+	public Double getPrecio() {
 		return precio;
 	}
-	public void setPrecio(double precio) {
+
+	public void setPrecio(Double precio) {
 		this.precio = precio;
 	}
-	public int getStock() {
+	public Integer getStock() {
 		return stock;
 	}
-	public void setStock(int stock) {
+	public void setStock(Integer stock) {
 		this.stock = stock;
 	}
-	public boolean isEstado() {
+	public Integer isEstado() {
 		return estado;
 	}
-	public void setEstado(boolean estado) {
+	public void setEstado(Integer estado) {
 		this.estado = estado;
 	}
-	
-	
 	
 }

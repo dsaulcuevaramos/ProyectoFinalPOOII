@@ -11,7 +11,7 @@ public interface VentaService {
 	public Venta save (Venta venta);
 	public Optional<Venta> get(int id);
 	public void update(Venta venta);
-	public void delte(int id);
+	public void delete(int id);
 	
 	
 }

@@ -32,27 +32,11 @@ private final Logger LOGGER = LoggerFactory.getLogger(ClienteController.class);
 		return mav;
 	}
 	
-	@GetMapping("/create")
-	public String create(){
-		return "Clientes/ClienteForm";
-	}
-	
 	@PostMapping("/save")
 	public String save(Cliente cliente){
 		LOGGER.info("este es el objeto cliente {}",cliente);
 		clienteService.save(cliente);
 		return "redirect:/clientecontroller";
-	}
-	
-	@GetMapping("/edit/{id}")
-	public ModelAndView edit(@PathVariable int id){
-		Cliente client = new Cliente();
-		Optional<Cliente> optional = clienteService.get(id);
-		client = optional.get();
-		LOGGER.info("Cliente buscado: {}",client);
-		ModelAndView mav = new ModelAndView("Clientes/ClienteEdit");
-		mav.addObject("cliente",client);
-		return mav;
 	}
 	
 	@PostMapping("/update")
@@ -64,7 +48,7 @@ private final Logger LOGGER = LoggerFactory.getLogger(ClienteController.class);
 	
 	@GetMapping("/delete/{id}")
 	public String delete(@PathVariable int id){
-		clienteService.delte(id);
+		clienteService.delete(id);
 		return "redirect:/clientecontroller";
 	}
 	
